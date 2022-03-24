@@ -6,8 +6,12 @@ using UnityEngine.EventSystems;
 
 public class Game : MonoBehaviour
 {
+	public GameObject startRoundBut;
+	public GameObject returnMainBut;
+	public GameObject upgradeBut;
 
     public Text scoreText;
+	public float timer;
 	public int offset;
 	public int[] up_count = new int[5];
 
@@ -16,6 +20,7 @@ public class Game : MonoBehaviour
         //Need to link scoretext to this here
         scoreText = GetComponentInChildren<Text>();
 		offset = 1;
+		timer = 0;
     }
 
 
@@ -24,12 +29,28 @@ public class Game : MonoBehaviour
     //When the Clicker is clicked add to the currency 
     public void Increment()
     {
-        GameManager.score += GameManager.multiplier * offset;
+		if(timer > 0)
+		{
+			GameManager.score += GameManager.multiplier * offset;
+		}
     }
 
 
     private void Update()
     {
+		if(timer > 0)
+		{	
+			startRoundBut.SetActive(false);
+			returnMainBut.SetActive(false);
+			upgradeBut.SetActive(false);
+		}
+		else
+		{
+			startRoundBut.SetActive(true);
+			returnMainBut.SetActive(true);
+			upgradeBut.SetActive(true);
+		}
+		
         scoreText.text = "Score: " + GameManager.score;
     }
 	
@@ -91,5 +112,24 @@ public class Game : MonoBehaviour
 			}
 		}
 		Debug.Log(offset);
+	}
+	
+	public void startRound()
+	{
+		timer = 30;
+		Text countdown = GameObject.FindWithTag("countdown").GetComponent<Text>();
+		countdown.text = "TIME: 30";
+		StartCoroutine(timeWait());
+	}
+	
+	IEnumerator timeWait()
+	{
+		while(timer > 0)
+		{
+			yield return new WaitForSeconds(1);
+			timer -= 1;
+			Text countdown1 = GameObject.FindWithTag("countdown").GetComponent<Text>();
+			countdown1.text = "TIME: " + timer;
+		}
 	}
 }
