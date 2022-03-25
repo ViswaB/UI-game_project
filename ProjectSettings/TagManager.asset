@@ -18,6 +18,7 @@ TagManager:
   - startroundbutton
   - returnmainbutton
   - upgradebutton
+  - score
   layers:
   - Default
   - TransparentFX

@@ -10,7 +10,8 @@ public enum CanvasType
 {
     MainMenu,
     GameUI,
-    Shop
+    Shop,
+	Help
 }
 
 
