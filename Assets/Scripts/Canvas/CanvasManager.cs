@@ -11,7 +11,8 @@ public enum CanvasType
     MainMenu,
     GameUI,
     Shop,
-	Help
+	Help,
+    Victory
 }
 
 
@@ -61,5 +62,8 @@ public class CanvasManager : Singleton<CanvasManager>
 
     }
 
+
+
+    
 
 }

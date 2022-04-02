@@ -6,14 +6,21 @@ using UnityEngine.EventSystems;
 
 public class Game : MonoBehaviour
 {
+	
 	public GameObject startRoundBut;
 	public GameObject returnMainBut;
 	public GameObject upgradeBut;
+	public CanvasManager canvasManager;
 
-    public Text scoreText;
+	public Text scoreText;
 	public float timer;
 	public int offset;
 	public int[] up_count = new int[5];
+
+	public int victoryScore = 100;
+	private int victoryPointsRemaining;
+	public bool victoryFlag = false;
+
 
     void Start()
     {
@@ -26,18 +33,32 @@ public class Game : MonoBehaviour
 
 
 
-    //When the Clicker is clicked add to the currency 
+    //When the Clicker is clicked add to the Score
     public void Increment()
     {
 		if(timer > 0)
 		{
 			GameManager.score += GameManager.multiplier * offset;
+			victoryPointsRemaining--;
+			
 		}
-    }
 
+		//This statement gets triggered only once after the player gets enough score in a round
+		if(victoryPointsRemaining <= 0 && victoryFlag == false)
+        {
+			timer = 0;
+			victoryFlag = true;
+			Debug.Log("Victory");
+			canvasManager.SwitchCanvas(CanvasType.Victory);
+		}
 
+	}
+
+	
     private void Update()
     {
+
+		
 		if(timer > 0)
 		{	
 			startRoundBut.SetActive(false);
@@ -117,6 +138,9 @@ public class Game : MonoBehaviour
 	public void startRound()
 	{
 		timer = 30;
+		victoryPointsRemaining = victoryScore;              //When each round is started set the victoryPointsRemaining to the victoryScore needed
+		Debug.Log("Score to win is: " + victoryPointsRemaining);
+
 		Text countdown = GameObject.FindWithTag("countdown").GetComponent<Text>();
 		countdown.text = "TIME: 30";
 		StartCoroutine(timeWait());
@@ -132,4 +156,9 @@ public class Game : MonoBehaviour
 			countdown1.text = "TIME: " + timer;
 		}
 	}
+
+
+	
+
+
 }

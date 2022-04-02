@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 
     public static int score;
     public static int multiplier;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -16,5 +17,11 @@ public class GameManager : MonoBehaviour
         score = 0;
     }
 
-   
+    //This function will handle exiting the game and closing the Application
+    public void Exit()
+    {
+        Debug.Log("Quiting Game");
+        Application.Quit();
+    }
+
 }
