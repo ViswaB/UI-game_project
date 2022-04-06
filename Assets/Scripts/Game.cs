@@ -89,6 +89,13 @@ public class Game : MonoBehaviour
 				up_count[0] += 1;
 				Text count = GameObject.FindWithTag("upCount1").GetComponent<Text>();
 				count.text = up_count[0] + "/5";
+				Text pc = GameObject.FindWithTag("pc").GetComponent<Text>();
+				pc.text = "Successfully purchased upgrade 1!";
+			}
+			else
+			{
+				Text pc = GameObject.FindWithTag("pc").GetComponent<Text>();
+				pc.text = "Unable to purchase upgrade 1.";
 			}
 		}
 		
@@ -102,6 +109,13 @@ public class Game : MonoBehaviour
 				up_count[1] += 1;
 				Text count = GameObject.FindWithTag("upCount2").GetComponent<Text>();
 				count.text = up_count[1] + "/5";
+				Text pc = GameObject.FindWithTag("pc").GetComponent<Text>();
+				pc.text = "Successfully purchased upgrade 2!";
+			}
+			else
+			{
+				Text pc = GameObject.FindWithTag("pc").GetComponent<Text>();
+				pc.text = "Unable to purchase upgrade 2.";
 			}
 		}
 		
@@ -115,6 +129,13 @@ public class Game : MonoBehaviour
 				up_count[2] += 1;
 				Text count = GameObject.FindWithTag("upCount3").GetComponent<Text>();
 				count.text = up_count[2] + "/5";
+				Text pc = GameObject.FindWithTag("pc").GetComponent<Text>();
+				pc.text = "Successfully purchased upgrade 3!";
+			}
+			else
+			{
+				Text pc = GameObject.FindWithTag("pc").GetComponent<Text>();
+				pc.text = "Unable to purchase upgrade 3.";
 			}
 		}
 		
@@ -128,6 +149,13 @@ public class Game : MonoBehaviour
 				up_count[3] += 1;
 				Text count = GameObject.FindWithTag("upCount4").GetComponent<Text>();
 				count.text = up_count[3] + "/5";
+				Text pc = GameObject.FindWithTag("pc").GetComponent<Text>();
+				pc.text = "Successfully purchased upgrade 4!";
+			}
+			else
+			{
+				Text pc = GameObject.FindWithTag("pc").GetComponent<Text>();
+				pc.text = "Unable to purchase upgrade 4.";
 			}
 		}
 		
@@ -141,6 +169,13 @@ public class Game : MonoBehaviour
 				up_count[4] += 1;
 				Text count = GameObject.FindWithTag("upCount5").GetComponent<Text>();
 				count.text = up_count[4] + "/5";
+				Text pc = GameObject.FindWithTag("pc").GetComponent<Text>();
+				pc.text = "Successfully purchased upgrade 5!";
+			}
+			else
+			{
+				Text pc = GameObject.FindWithTag("pc").GetComponent<Text>();
+				pc.text = "Unable to purchase upgrade 5.";
 			}
 		}
 		Debug.Log(offset);
@@ -148,12 +183,12 @@ public class Game : MonoBehaviour
 	
 	public void startRound()
 	{
-		timer = 30;
+		timer = 10;
 		victoryPointsRemaining = victoryScore;              //When each round is started set the victoryPointsRemaining to the victoryScore needed
 		Debug.Log("Score to win is: " + victoryPointsRemaining);
 
 		Text countdown = GameObject.FindWithTag("countdown").GetComponent<Text>();
-		countdown.text = "TIME: 30";
+		countdown.text = "TIME: 10";
 		StartCoroutine(timeWait());
 	}
 	
@@ -169,7 +204,6 @@ public class Game : MonoBehaviour
 	}
 
 
-	
 
 
 }

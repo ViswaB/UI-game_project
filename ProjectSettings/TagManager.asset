@@ -19,6 +19,7 @@ TagManager:
   - returnmainbutton
   - upgradebutton
   - score
+  - pc
   layers:
   - Default
   - TransparentFX
