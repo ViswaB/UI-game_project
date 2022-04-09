@@ -11,7 +11,9 @@ public enum CanvasType
     MainMenu,
     GameUI,
     Shop,
-	Help,
+	Help1,
+	Help2,
+	Help3,
     Victory
 }
 

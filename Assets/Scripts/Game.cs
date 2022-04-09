@@ -42,17 +42,19 @@ public class Game : MonoBehaviour
 			GameManager.score += GameManager.multiplier * (int)offset;
 			victoryPointsRemaining -= GameManager.multiplier * (int)offset;
 			
+			//This statement gets triggered only once after the player gets enough score in a round
+			if(victoryPointsRemaining <= 0 && victoryFlag == false)
+			{
+				Text countdown = GameObject.FindWithTag("countdown").GetComponent<Text>();
+				countdown.text = "TIME: 0";
+				victoryFlag = true;
+				Debug.Log("Victory");
+				canvasManager.SwitchCanvas(CanvasType.Victory);
+			}
+			
 		}
 
-		//This statement gets triggered only once after the player gets enough score in a round
-		if(victoryPointsRemaining <= 0 && victoryFlag == false)
-        {
-			Text countdown = GameObject.FindWithTag("countdown").GetComponent<Text>();
-			countdown.text = "TIME: 0";
-			victoryFlag = true;
-			Debug.Log("Victory");
-			canvasManager.SwitchCanvas(CanvasType.Victory);
-		}
+		
 
 	}
 
