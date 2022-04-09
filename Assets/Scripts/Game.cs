@@ -18,6 +18,12 @@ public class Game : MonoBehaviour
 	public double offset;
 	public int[] up_count = new int[5];
 
+	public UpgradeBarScript upgradeBar1;
+	public UpgradeBarScript upgradeBar2;
+	public UpgradeBarScript upgradeBar3;
+	public UpgradeBarScript upgradeBar4;
+	public UpgradeBarScript upgradeBar5;
+
 	public int victoryScore;
 	private int victoryPointsRemaining;
 	public bool victoryFlag = false;
@@ -30,7 +36,14 @@ public class Game : MonoBehaviour
 		offset = 1;
 		timer = 0;
 		victoryScore = 10000;
-    }
+
+		upgradeBar1.setSlider(0);
+		upgradeBar2.setSlider(0);
+		upgradeBar3.setSlider(0);
+		upgradeBar4.setSlider(0);
+		upgradeBar5.setSlider(0);
+
+	}
 
 
 
@@ -99,6 +112,7 @@ public class Game : MonoBehaviour
 				count.text = up_count[0] + "/5";
 				Text pc = GameObject.FindWithTag("pc").GetComponent<Text>();
 				pc.text = "Successfully purchased upgrade 1!";
+				upgradeBar1.setSlider(up_count[0]);
 			}
 			else
 			{
@@ -119,6 +133,7 @@ public class Game : MonoBehaviour
 				count.text = up_count[1] + "/5";
 				Text pc = GameObject.FindWithTag("pc").GetComponent<Text>();
 				pc.text = "Successfully purchased upgrade 2!";
+				upgradeBar2.setSlider(up_count[1]);
 			}
 			else
 			{
@@ -139,6 +154,8 @@ public class Game : MonoBehaviour
 				count.text = up_count[2] + "/5";
 				Text pc = GameObject.FindWithTag("pc").GetComponent<Text>();
 				pc.text = "Successfully purchased upgrade 3!";
+				upgradeBar3.setSlider(up_count[2]);
+
 			}
 			else
 			{
@@ -159,6 +176,8 @@ public class Game : MonoBehaviour
 				count.text = up_count[3] + "/5";
 				Text pc = GameObject.FindWithTag("pc").GetComponent<Text>();
 				pc.text = "Successfully purchased upgrade 4!";
+				upgradeBar4.setSlider(up_count[3]);
+
 			}
 			else
 			{
@@ -179,6 +198,7 @@ public class Game : MonoBehaviour
 				count.text = up_count[4] + "/5";
 				Text pc = GameObject.FindWithTag("pc").GetComponent<Text>();
 				pc.text = "Successfully purchased upgrade 5!";
+				upgradeBar5.setSlider(up_count[4]);
 			}
 			else
 			{
