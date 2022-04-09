@@ -6,7 +6,8 @@ using UnityEngine.EventSystems;
 
 public class Game : MonoBehaviour
 {
-	
+	public GameObject HelpBut;
+	public GameObject QuitBut;
 	public GameObject startRoundBut;
 	public GameObject returnMainBut;
 	public GameObject upgradeBut;
@@ -46,6 +47,7 @@ public class Game : MonoBehaviour
 			if(victoryPointsRemaining <= 0 && victoryFlag == false)
 			{
 				Text countdown = GameObject.FindWithTag("countdown").GetComponent<Text>();
+				timer = 0;
 				countdown.text = "TIME: 0";
 				victoryFlag = true;
 				Debug.Log("Victory");
@@ -68,12 +70,16 @@ public class Game : MonoBehaviour
 			startRoundBut.SetActive(false);
 			returnMainBut.SetActive(false);
 			upgradeBut.SetActive(false);
+			HelpBut.SetActive(false);
+			QuitBut.SetActive(false);
 		}
 		else
 		{
 			startRoundBut.SetActive(true);
 			returnMainBut.SetActive(true);
 			upgradeBut.SetActive(true);
+			HelpBut.SetActive(true);
+			QuitBut.SetActive(true);
 		}
 		
         scoreText.text = "Score: " + GameManager.score;

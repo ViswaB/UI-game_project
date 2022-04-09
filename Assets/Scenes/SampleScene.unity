@@ -9265,6 +9265,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26fa7f2ca9f27ca44bd264a5c73ff4d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HelpBut: {fileID: 583656408}
+  QuitBut: {fileID: 2598095}
   startRoundBut: {fileID: 1019678197}
   returnMainBut: {fileID: 663513227}
   upgradeBut: {fileID: 1379083336}
