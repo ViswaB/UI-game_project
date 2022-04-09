@@ -24,6 +24,9 @@ public class Game : MonoBehaviour
 	public UpgradeBarScript upgradeBar4;
 	public UpgradeBarScript upgradeBar5;
 
+	public AudioSource clickerSound;
+	public AudioSource victoryFanfare;
+
 	public int victoryScore;
 	private int victoryPointsRemaining;
 	public bool victoryFlag = false;
@@ -55,7 +58,11 @@ public class Game : MonoBehaviour
 		{
 			GameManager.score += GameManager.multiplier * (int)offset;
 			victoryPointsRemaining -= GameManager.multiplier * (int)offset;
-			
+
+
+			clickerSound.Play();
+
+
 			//This statement gets triggered only once after the player gets enough score in a round
 			if(victoryPointsRemaining <= 0 && victoryFlag == false)
 			{
@@ -63,6 +70,7 @@ public class Game : MonoBehaviour
 				timer = 0;
 				countdown.text = "TIME: 0";
 				victoryFlag = true;
+				victoryFanfare.Play();
 				Debug.Log("Victory");
 				canvasManager.SwitchCanvas(CanvasType.Victory);
 			}
