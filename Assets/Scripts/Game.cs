@@ -103,7 +103,7 @@ public class Game : MonoBehaviour
 			QuitBut.SetActive(true);
 		}
 		
-        scoreText.text = "Score: " + GameManager.score;
+        scoreText.text = "SCORE: " + GameManager.score;
     }
 	
 	public void increaseMult()
@@ -132,7 +132,7 @@ public class Game : MonoBehaviour
 		//upgrade 2 - +2
 		if(EventSystem.current.currentSelectedGameObject.tag == "up2")
 		{
-			if(GameManager.score >= 200 && up_count[1] < 5)
+			if(GameManager.score >= 300 && up_count[1] < 5)
 			{
 				offset = offset + 2;
 				GameManager.score = GameManager.score - 200;
@@ -153,7 +153,7 @@ public class Game : MonoBehaviour
 		//upgrade 3 - +3
 		if(EventSystem.current.currentSelectedGameObject.tag == "up3")
 		{
-			if(GameManager.score >= 300 && up_count[2] < 5)
+			if(GameManager.score >= 500 && up_count[2] < 5)
 			{
 				offset = offset + 3;
 				GameManager.score = GameManager.score - 300;
@@ -163,7 +163,6 @@ public class Game : MonoBehaviour
 				Text pc = GameObject.FindWithTag("pc").GetComponent<Text>();
 				pc.text = "Successfully purchased upgrade 3!";
 				upgradeBar3.setSlider(up_count[2]);
-
 			}
 			else
 			{
@@ -175,7 +174,7 @@ public class Game : MonoBehaviour
 		//upgrade 4 - *1.5
 		if(EventSystem.current.currentSelectedGameObject.tag == "up4")
 		{
-			if(GameManager.score >= 400 && up_count[3] < 5)
+			if(GameManager.score >= 1000 && up_count[3] < 5)
 			{
 				offset = offset * 1.5;
 				GameManager.score = GameManager.score - 400;
@@ -185,7 +184,6 @@ public class Game : MonoBehaviour
 				Text pc = GameObject.FindWithTag("pc").GetComponent<Text>();
 				pc.text = "Successfully purchased upgrade 4!";
 				upgradeBar4.setSlider(up_count[3]);
-
 			}
 			else
 			{
@@ -197,7 +195,7 @@ public class Game : MonoBehaviour
 		//upgrade 5 - *2
 		if(EventSystem.current.currentSelectedGameObject.tag == "up5")
 		{
-			if(GameManager.score >= 500 && up_count[4] < 5)
+			if(GameManager.score >= 2000 && up_count[4] < 5)
 			{
 				offset = offset * 2;
 				GameManager.score = GameManager.score - 500;
