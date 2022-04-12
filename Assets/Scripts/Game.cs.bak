@@ -37,7 +37,7 @@ public class Game : MonoBehaviour
     {
         //Need to link scoretext to this here
         scoreText = GetComponentInChildren<Text>();
-		multText = GameObject.FindWithTag("mult").GetComponent<Text>();
+		multText = GameObject.FindWithTag("score").GetComponent<Text>();
 		offset = 1;
 		timer = 0;
 		victoryScore = 10000;
