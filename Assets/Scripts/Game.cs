@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using System.IO;
+
 
 public class Game : MonoBehaviour
 {
@@ -31,6 +33,14 @@ public class Game : MonoBehaviour
 	private int victoryPointsRemaining;
 	public bool victoryFlag = false;
 
+	//Study Variables
+	//Get Total number of clicks from when the player to complete the game
+	int totalClicks;
+	//Get the time it takes until the victory screen appears
+	string endTime;
+	string startTime;
+
+	//Ouput to .txt file
 
     void Start()
     {
@@ -38,7 +48,7 @@ public class Game : MonoBehaviour
         scoreText = GetComponentInChildren<Text>();
 		offset = 1;
 		timer = 0;
-		victoryScore = 10000;
+		victoryScore = 10;  //victoryScore = 10000;
 
 		upgradeBar1.setSlider(0);
 		upgradeBar2.setSlider(0);
@@ -46,13 +56,17 @@ public class Game : MonoBehaviour
 		upgradeBar4.setSlider(0);
 		upgradeBar5.setSlider(0);
 
+
+		totalClicks = 0;
+		startTime = "Start: " + System.DateTime.Now + "\n";
+
 	}
 
 
 
 
-    //When the Clicker is clicked add to the Score
-    public void Increment()
+	//When the Clicker is clicked add to the Score
+	public void Increment()
     {
 		if(timer > 0)
 		{
@@ -61,7 +75,7 @@ public class Game : MonoBehaviour
 
 
 			clickerSound.Play();
-
+			totalClicks++;
 
 			//This statement gets triggered only once after the player gets enough score in a round
 			if(victoryPointsRemaining <= 0 && victoryFlag == false)
@@ -73,6 +87,7 @@ public class Game : MonoBehaviour
 				victoryFanfare.Play();
 				Debug.Log("Victory");
 				canvasManager.SwitchCanvas(CanvasType.Victory);
+				CreateText(totalClicks);
 			}
 			
 		}
@@ -240,6 +255,33 @@ public class Game : MonoBehaviour
 	}
 
 
+	void CreateText(int c)
+    {
+		//File Path
+		string path = Application.dataPath + "/Study.txt";
 
+
+		//Create new file if it doesn't exist
+        if (!File.Exists(path))
+        {
+			File.WriteAllText(path, "Study Measurements \n \n");
+        }
+
+		//Create string Content
+
+		endTime = "End: " + System.DateTime.Now + "\n";
+		string totalClickString = "It took the player " + c + " clicks to complete the game \n";
+        
+
+		//Add some text to it
+
+		File.AppendAllText(path, startTime + "\n");
+		File.AppendAllText(path, endTime + "\n");
+
+		File.AppendAllText(path, totalClickString);
+		
+
+
+    }
 
 }
