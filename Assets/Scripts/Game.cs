@@ -50,7 +50,7 @@ public class Game : MonoBehaviour
 		multText = GameObject.FindWithTag("mult").GetComponent<Text>();
 		offset = 1;
 		timer = 0;
-		victoryScore = 10;  //victoryScore = 10000;
+		victoryScore = 10000;  //victoryScore = 10000;
 
 		upgradeBar1.setSlider(0);
 		upgradeBar2.setSlider(0);
