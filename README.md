@@ -1,17 +1,6 @@
 # UI-game_project
 
-Welcome to the repository for the CS 4393.001 (User Interfaces) Spring 2022 final project at UTSA! Our group developed a clicker-game in Unity titled *10 Seconds To Mars*. 
-
-<h3>A Video Presentation Of This Project</h3>
-<iframe
-    width="640"
-    height="480"
-    src="https://youtu.be/GfpR_mkCEUU"
-    frameborder="0"
-    allow="autoplay; encrypted-media"
-    allowfullscreen
->
-</iframe>
+Welcome to the repository for the CS 4393.001 (User Interfaces) Spring 2022 final project at UTSA! Our group developed a clicker-game in Unity titled *10 Seconds To Mars*. A video presentation of this project and the results of a user study conducted on the game and its interface can be found [here](https://youtu.be/GfpR_mkCEUU).
 
 <h3>Team Members</h3>
 
